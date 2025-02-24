@@ -13,12 +13,16 @@ public class Paciente {
 	
 	public void setNome(String nome) {
 		
-		if(nome.length() <3) {
-			this.nome = nome;
+		if(nome.length() >3) {
+			this.nome = nome.toUpperCase();
 		} else {
 			System.out.println("O nome deve conter mais do que 3 caracteres");
 		}
 		
+	}
+	
+	public String getNome() {
+		return nome;
 	}
 	
 	public void setPeso(double peso) {
@@ -52,6 +56,39 @@ public class Paciente {
      public double getAltura() {
     	 return altura;
     }
+     
+ 	public void setGenero(String genero) {
+ 		if(genero.equalsIgnoreCase("m")|| genero.equalsIgnoreCase("f")|| genero.equalsIgnoreCase("o")) {
+ 			this.genero = genero.toUpperCase();	
+ 		} else {
+ 			System.out.println("O gênero do(a) " +nome+ " deve ser \"M\" \"F\" ou \"O\"");
+ 		}
+ 	}
+ 	
+ 	public String getGenero() {
+ 		return genero;
+ 	}
+     
+     public void setTelefone(String telefone) {
+ 		if(telefone.length() >=13) {
+ 			this.telefone = telefone;
+ 		} else {
+ 			System.out.println("O valor " +telefone+ "não está correto");
+ 		}
+ 	}
+     
+     public String getTelefone() {
+  		return telefone;
+  	}
+     
+     public void setDataNascimento(LocalDate dataNascimento) {
+    	 
+     }
+      
+ 	
+ 	
+ 
+
 
 	public void marcarConsulta (){
 
@@ -80,6 +117,9 @@ public class Paciente {
 		System.out.println("NOME: " + nome);
 		System.out.printf("PESO: %s %s\n", peso, unidadePeso);
 		System.out.printf("ALTURA: %s %s\n", altura, unidadeAltura);
+		System.out.println("GENERO: " +genero);
+		System.out.println("TELEFONE: " +telefone);
+		
 		System.out.println("====================================");
 		System.out.println();
 
