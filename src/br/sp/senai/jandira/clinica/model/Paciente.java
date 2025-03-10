@@ -1,6 +1,7 @@
 package br.sp.senai.jandira.clinica.model;
 
 import java.time.LocalDate;
+import java.time.Period;
 
 public class Paciente {
 	
@@ -83,6 +84,7 @@ public class Paciente {
      
      public void setDataNascimento(LocalDate dataNascimento) {
     	 
+    	 this.dataNascimento = dataNascimento;
      }
       
  	
@@ -94,8 +96,10 @@ public class Paciente {
 
 	}
 	
-	public void calcularIdade(){
-
+	public int calcularIdade(){
+		Period tempo = Period.between(dataNascimento, LocalDate.now());
+		int idade = tempo.getYears();
+		return idade;
 	}
 	
 	public void calcularImc(){
@@ -117,8 +121,10 @@ public class Paciente {
 		System.out.println("NOME: " + nome);
 		System.out.printf("PESO: %s %s\n", peso, unidadePeso);
 		System.out.printf("ALTURA: %s %s\n", altura, unidadeAltura);
+		System.out.printf("IDADE: %s\n", calcularIdade());
 		System.out.println("GENERO: " +genero);
 		System.out.println("TELEFONE: " +telefone);
+		System.out.println();
 		
 		System.out.println("====================================");
 		System.out.println();
